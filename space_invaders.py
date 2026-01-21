@@ -1,0 +1,67 @@
+#!/usr/bin/env python3
+"""
+Space Invaders minimal en Python + Pygame
+Archivo: space_invaders.py
+
+Requisitos: pip install pygame
+
+Controles:
+ - Izquierda/Derecha o A/D: mover la nave
+ - Espacio: disparar
+ - R: reiniciar tras perder
+ - Esc / cerrar ventana: salir
+"""
+import pygame
+import random
+import math
+import sys
+
+# --- Configuración ---
+WIDTH, HEIGHT = 800, 600
+FPS = 60
+
+PLAYER_WIDTH, PLAYER_HEIGHT = 60, 20
+PLAYER_COLOR = (50, 200, 255)
+PLAYER_SPEED = 6
+PLAYER_Y_OFFSET = 60
+PLAYER_LIVES = 3
+
+BULLET_COLOR = (255, 255, 0)
+BULLET_SPEED = -9
+BULLET_RADIUS = 4
+MAX_PLAYER_BULLETS = 1
+
+ENEMY_ROWS = 4
+ENEMY_COLS = 8
+ENEMY_X_GAP = 80
+ENEMY_Y_GAP = 60
+ENEMY_START_X = 80
+ENEMY_START_Y = 60
+ENEMY_WIDTH, ENEMY_HEIGHT = 44, 26
+ENEMY_COLOR = (200, 80, 80)
+ENEMY_X_SPEED = 1.2
+ENEMY_DROP = 20
+
+ENEMY_BULLET_SPEED = 4
+ENEMY_BULLET_COLOR = (255, 120, 50)
+ENEMY_SHOOT_PROB = 0.0025  # probabilidad por enemigo por frame de disparar
+
+FONT_NAME = None  # usa la fuente por defecto
+
+# --- Inicialización ---
+pygame.init()
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Space Invaders - PyGame")
+clock = pygame.time.Clock()
+font = pygame.font.SysFont(FONT_NAME, 22)
+big_font = pygame.font.SysFont(FONT_NAME, 48)
+
+
+# --- Clases del juego ---
+class Player:
+    def __init__(self):
+        self.width = PLAYER_WIDTH
+        self.height = PLAYER_HEIGHT
+        self.x = WIDTH // 2
+        self.y = HEIGHT - PLAYER_Y_OFFSET
+        self.speed = PLAYER_SPEED
