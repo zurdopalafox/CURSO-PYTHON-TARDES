@@ -10,6 +10,7 @@ Controles:
  - Espacio: disparar
  - R: reiniciar tras perder
  - Esc / cerrar ventana: salir
+ - ESTO ES DE PRUEBA PARA PROBAR CAMBIOS EN EL CODIGO
 """
 import pygame
 import random
