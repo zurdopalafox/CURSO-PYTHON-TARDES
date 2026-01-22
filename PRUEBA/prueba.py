@@ -1,0 +1,1 @@
+print("Hoy es Jueves")  
