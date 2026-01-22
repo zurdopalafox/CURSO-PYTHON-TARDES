@@ -10,6 +10,7 @@ Controles:
  - Espacio: disparar
  - R: reiniciar tras perder
  - Esc / cerrar ventana: salir
+ - Linea adicional de prueba GITHUB
 """
 
 import pygame
